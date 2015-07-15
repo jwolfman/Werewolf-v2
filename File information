@@ -1,0 +1,2 @@
+static is publicly accessible through HTML
+templates is for Jinga2 templates
