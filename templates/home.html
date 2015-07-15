@@ -1,0 +1,78 @@
+<html>
+<head>
+    <link rel="stylesheet" href="/public/stylesheets/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/stylesheets/dist/fonts/glyphicons-halflings-regular.ttf">
+    <!-- <link rel="stylesheet" href="/public/stylesheets/dist/css/bootstrap-theme.css"> -->
+    <link rel="stylesheet" href="/public/stylesheets/game.css">
+    <!-- <link type="text/css" rel="stylesheet" href="/public/stylesheets/jquery.dropdown.css" /> -->
+    <script src="/public/js/lib/jquery.js"></script>
+    <script src="/public/js/lib/underscore-min.js"></script>
+    <!-- <script type="text/javascript" src="/public/js/lib/jquery.dropdown.js"></script> -->
+    <script src="/public/js/lib/socket.js"></script>
+    <script src="/public/stylesheets/dist/js/bootstrap.min.js"></script>
+    <script src="/public/js/src/index.js"></script>
+    <script src="/public/js/src/roles.js"></script>
+</head>
+<body>
+<!--need to make this the focus while it's up, probably using an onLoad which would let us validate names as they're typed-->
+<div id="username-dialog" class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h3 class="modal-title">What is your name?</h3>
+        </div>
+        <div class ="form-group">
+            <input type="text" id="username-input" class="form-control" autofocus></input>
+        </div>
+        <div class="modal-footer">
+            <button type="button" onclick="submitUsername()" class="btn btn-primary" > Submit</button>
+        </div>
+    </div><!-- /.modal-content -->
+
+</div><!-- /.modal-dialog -->
+<div class="container fixed">
+    <!--not sure if there's any need for a menu bar, could easily become a tab bar for the chats accessible-->
+    <div id="menus">
+        <ul class="nav nav-tabs">
+            <li><a href="#">Item 1</a></li>
+            <li><a href="#">Item 2</a></li>
+        </ul>
+    </div>
+    <div id="main" class="container">
+        <div id="roleHolder" class="col-xs-3 container-fluid">
+            <div id="roleName" class="row col-lg-12">
+                <h3>Temp Name</h3>
+            </div>
+            <div id="roleImage" class="row col-lg-12">
+                <!--img src="" class="img-rounded img-responsive" alt=""-->
+                role image goes here
+            </div>
+            <div id="roleExplanation" class="row col-lg-12">
+                <p>
+                    role explanation here
+                </p>
+            </div>
+        </div>
+        <div id="chatHolder" class="col-xs-6 container">
+            <div class="chat row">
+                <div id="messages"></div>
+            </div>
+            <div id="textEntry" class="row">
+                <form>
+                    <input class="col-xs-9" type="text" autocomplete="off" id="user-message">
+                    <input type="button" class="col-xs-3 btn" onclick="sendMessage()" value="Send"></input>
+                </form>
+            </div>
+        </div>
+        <div id="users" class="col-xs-3">
+            <div id="userTable" class="row">
+            <div id="users" class="col-xs-3">
+                <div id="userEntries" class="btn-group-vertical">
+            </div>
+            <div id="timer" class="row col-lg-12">
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
