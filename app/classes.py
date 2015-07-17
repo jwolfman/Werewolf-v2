@@ -1,3 +1,4 @@
+
 class Player(object):
 	def __init__(self, role, alive, moderator):
 		self.role = role
@@ -23,6 +24,15 @@ class Villager(Player):
 class Moderator(Player):
 	role = "Moderator"
 	
-class Actions(object):
+class Action(object):
 	def death(killed):
 		killed.alive = False
+	def receiveRole(player, role):
+		player.role = role
+		
+class Village(object):
+	def __init__(self, players):
+		self.players = players
+		
+class Time(object):
+	pass
