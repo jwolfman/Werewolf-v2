@@ -4,11 +4,13 @@ from contextlib import closing
 
 DATABASE="/tmp/werewolf.db"
 DEBUG=True
-#SECRET_KEY=""
+SECRET_KEY="dev key"
+USERNAME="admin"
+PASSWORD="default"
 
 app = Flask(__name__)
-app.config.from_object(__name__)
-app.config.from_envvar("Werewolf_settings",silent=True)
+#app.config.from_object(__name__)
+app.config.from_envvar("WEREWOLF_SETTINGS",silent=True)
 
 def connect_db():
     return sqlite3.connect(app.config["database"])
@@ -20,7 +22,7 @@ def init_db():
         db.commit()
 
 #module level functions
-@app.before_request
+#@app.before_request
 def before_request():
     g.db=connect_db()
 
@@ -32,6 +34,7 @@ def teardown_request(exception):
 
 @app.route('/')
 def start():
+    return render_template("home.html")
     return redirect(url_for("home"))
 
 @app.route("/login",methods=["GET","POST"])
